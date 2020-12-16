@@ -42,24 +42,25 @@
 
 <body>
 <div id="app">
-    <g-row>
-        <g-col>1</g-col>
-        <g-col>2</g-col>
+    <div style="border: 1px solid black">
+    <g-row gutter="20">
+        <g-col >1</g-col>
+        <g-col >2</g-col>
     </g-row>
-    <g-row>
-        <g-col>1</g-col>
-        <g-col>2</g-col>
-        <g-col>2</g-col>
-    </g-row>
-    <g-row>
+    <g-row gutter="20">
         <g-col>1</g-col>
         <g-col>2</g-col>
         <g-col>2</g-col>
+    </g-row>
+    <g-row gutter="20">
+        <g-col>1</g-col>
+        <g-col>2</g-col>
+        <g-col>2</g-col>
         <g-col>2</g-col>
     </g-row>
-    <g-row>
-        <g-col span="4">1</g-col>
-        <g-col span="20">2</g-col>
+    <g-row gutter="20">
+        <g-col span="2">1</g-col>
+        <g-col span="20" offset="2">2</g-col>
     </g-row>
     <div class="box">
     <g-input value="张三" disabled></g-input>
@@ -88,6 +89,7 @@
         <g-button>更多</g-button>
         <g-button icon="right" icon-position="right">下一页</g-button>
     </g-button-group>
+    </div>
     </div>
 </div>
 
