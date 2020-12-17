@@ -38,7 +38,6 @@
 </script>
 <style scoped lang="scss">
     .col {
-        width: 50%;
 
         $class-prefix: col-;
 
