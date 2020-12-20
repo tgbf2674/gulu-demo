@@ -35,8 +35,17 @@ new Vue({
     },
 
     created(){
-        this.$toast('<p>段落<stong>hi</stong><a href="https://www.qq.com">qq</a></p> ',{
-            enableHtml: true
+        this.$toast('你的智商需要充值 ',{
+            position: 'bottom',
+            enableHtml: true,
+            closeButton: {
+                text: '已充值',
+                callback(){
+                    console.log('他说已经充值了')
+                }
+            },
+            autoClose: true,
+            autoCloseDelay: 3
         })
 
     },
