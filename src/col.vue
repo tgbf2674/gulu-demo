@@ -1,19 +1,18 @@
 <template>
-    <div class="col" :class="colClass"
-         :style="colStyle">
-            <slot></slot>
-        </div>
+    <div class="col" :class="colClass" :style="colStyle">
+        <slot></slot>
+    </div>
 </template>
 <script>
-    let validator = (value)=>{
-            let keys = Object.keys(value)
-            let valid = true
-            keys.forEach(key => {
-                if(!['span','offset'].includes(key)) {
-                    valid = false
-                }
-            })
-            return valid
+    let validator = (value) => {
+        let keys = Object.keys(value)
+        let valid = true
+        keys.forEach(key => {
+            if (!['span', 'offset'].includes(key)) {
+                valid = false
+            }
+        })
+        return valid
     }
     export default {
         name: 'GuluCol',
@@ -24,56 +23,38 @@
             offset: {
                 type: [Number, String]
             },
-
-            ipad: {
-                type: Object,
-                validator
-            },
-            narrowPc: {
-                type: Object,
-                validator
-            },
-            pc:{
-                type: Object,
-                validator
-            },
-            widePc: {
-                type: Object,
-                validator
-            }
+            ipad: {type: Object, validator,},
+            narrowPc: {type: Object, validator,},
+            pc: {type: Object, validator,},
+            widePc: {type: Object, validator,}
         },
-        data() {
+        data () {
             return {
                 gutter: 0,
             }
         },
-        methods:{
-            createClasses (obj,str= ''){
-                if(!obj){return []}
+        methods: {
+            createClasses (obj, str = '') {
+                if (!obj) {return []}
                 let array = []
-                if (obj.span) {
-                    array.push(`col-${str}${obj.span}`)
-                }
-                if (obj.offset){
-                    array.push(`offset-${str}${obj.offset}`)
-                }
-                return array;
+                if (obj.span) { array.push(`col-${str}${obj.span}`) }
+                if (obj.offset) { array.push(`offset-${str}${obj.offset}`) }
+                return array
             }
         },
-        computed:{
-            colClass(){
-                let {span,offset,ipad,narrowPc,pc,widePc} =this
-                let createClasses= this.createClasses
+        computed: {
+            colClass () {
+                let {span, offset, ipad, narrowPc, pc, widePc} = this
+                let createClasses = this.createClasses
                 return [
-                    ...createClasses({span,offset}),
-                    ...createClasses(ipad,'ipad-'),
-                    ...createClasses(narrowPc,'narrowPc-'),
-                    ...createClasses(pc,'pc-'),
-                    ...createClasses(widePc,'wide-pc-'),
-
+                    ...createClasses({span, offset}),
+                    ...createClasses(ipad, 'ipad-'),
+                    ...createClasses(narrowPc, 'narrow-pc-'),
+                    ...createClasses(pc, 'pc-'),
+                    ...createClasses(widePc, 'wide-pc-'),
                 ]
             },
-            colStyle(){
+            colStyle () {
                 return {
                     paddingLeft: this.gutter / 2 + 'px',
                     paddingRight: this.gutter / 2 + 'px',
@@ -81,7 +62,6 @@
             }
         }
     }
-
 </script>
 <style scoped lang="scss">
     .col {

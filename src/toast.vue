@@ -16,12 +16,11 @@
         name: 'GuluToast',
         props: {
             autoClose: {
-                type: Boolean,
-                default: true
-            },
-            autoCloseDelay: {
-                type: Number,
-                default: 5
+                type: [Boolean,Number],
+                default: 5,
+                validator(value){
+                    return value === false || typeof value === 'number'
+                }
             },
             closeButton: {
                 type: Object,
@@ -67,7 +66,7 @@
                 if (this.autoClose) {
                     setTimeout(() => {
                         this.close()
-                    }, this.autoCloseDelay * 10000)
+                    }, this.autoClose * 1000)
                 }
             },
             close() {
@@ -90,7 +89,7 @@
     $font-size: 14px;
     $toast-min-height: 40px;
     $toast-bg: rgba(0, 0, 0, 0.75);
-    $animation-duration: 500s;
+    $animation-duration: 500ms;
     @keyframes slide-up {
         0% {
             opacity: 0;
