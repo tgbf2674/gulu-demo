@@ -59,7 +59,10 @@
         methods: {
             updateStyles() {
                 this.$nextTick(() => {
-                    this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
+                    console.log(this.$refs)
+                    console.log(this.$refs.line)
+                    this.$refs.line.style.height =
+                        `${this.$refs.toast.getBoundingClientRect().height}px`
                 })
             },
             execAutoClose() {
