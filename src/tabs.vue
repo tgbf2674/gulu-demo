@@ -3,10 +3,8 @@
         <slot></slot>
     </div>
 </template>
-
 <script>
-    import Vue from 'vue';
-
+    import Vue from 'vue'
     export default {
         name: 'GuluTabs',
         props: {
@@ -17,27 +15,25 @@
             direction: {
                 type: String,
                 default: 'horizontal',
-                validator(value) {
-                    return [
-                        'horizontal', 'vertical'
-                    ].indexOf(value) >= 0
+                validator (value) {
+                    return ['horizontal', 'vertical'].indexOf(value) >= 0
                 }
             }
         },
-        data() {
+        data () {
             return {
                 eventBus: new Vue()
             }
         },
-        provide() {
+        provide () {
             return {
                 eventBus: this.eventBus
             }
         },
-        mounted() {
-            // this.$emit('update:selected','xxx')
-            if(this.$children.length === 0){
-                console && console.warn&&console.warn('tabs的子组件应该是tabs-head和tabs-nav,但你没有子组件')
+        mounted () {
+            if (this.$children.length === 0) {
+                console && console.warn &&
+                console.warn('tabs的子组件应该是tabs-head和tabs-nav，但你没有写子组件')
             }
             this.$children.forEach((vm) => {
                 if (vm.$options.name === 'GuluTabsHead') {
@@ -52,5 +48,7 @@
         }
     }
 </script>
-
-<style lang="scss" scoped></style>
+<style>
+    .tabs {
+    }
+</style>

@@ -2,21 +2,12 @@
 <html lang="zh-Hans">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>轱辘</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        img {
-            max-width: 100%;
-        }
-
+        * {margin: 0; padding: 0; box-sizing: border-box;}
+        img {max-width: 100%;}
         html {
             --button-height: 32px;
             --font-size: 14px;
@@ -27,51 +18,26 @@
             --border-color: #999;
             --border-color-hover: #666;
         }
-
         #app {
         }
-
         body {
             font-size: var(--font-size);
         }
-
-    </style>
-
-    <style>
-        .demo {
-            border: 1px solid #666;
-            height: 100px;
-        }
-        .sider{
-            background: #333;
-            width: 200px;
-        }
-        .header{
-            background: #999;
-            height: 100px;
-        }
-        .footer{
-            background: #ccc;
-            height:50px;
-        }
     </style>
 </head>
-
 <body>
 
 <div id="app">
-    <g-tabs>
-        <div>hi</div>
-    </g-tabs>
-    <g-tabs :selected.sync ="selectedTab" >
+
+    <g-tabs :selected.sync="selectedTab">
         <g-tabs-head>
             <template slot="actions">
                 <button>设置</button>
             </template>
-            <g-tabs-item name="woman">
+            <g-tabs-item name="woman" disabled>
                 <g-icon name="settings"></g-icon>美女
             </g-tabs-item>
-            <g-tabs-item name="finance" disabled>
+            <g-tabs-item name="finance">
                 财经
             </g-tabs-item>
             <g-tabs-item name="sports">
@@ -91,7 +57,6 @@
         </g-tabs-body>
     </g-tabs>
 </div>
-
 <script src="./src/app.js"></script>
 </body>
 </html>
