@@ -6,36 +6,46 @@
 
 <script>
     import Vue from 'vue';
-    export default{
+
+    export default {
         name: 'GuluTabs',
         props: {
-            selected:{
+            selected: {
                 type: String,
                 required: true
             },
-            direction:{
+            direction: {
                 type: String,
                 default: 'horizontal',
-                validator(value){
+                validator(value) {
                     return [
-                        'horizontal','vertical'
-                    ].indexOf(value) >=0
+                        'horizontal', 'vertical'
+                    ].indexOf(value) >= 0
                 }
             }
         },
-        data(){
-            return{
+        data() {
+            return {
                 eventBus: new Vue()
             }
         },
-        provide(){
-          return {
-              eventBus: this.eventBus
-          }
+        provide() {
+            return {
+                eventBus: this.eventBus
+            }
         },
         mounted() {
             // this.$emit('update:selected','xxx')
-            this.eventBus.$emit('update:selected',this.selected)
+            this.$children.forEach((vm) => {
+                if (vm.$options.name === 'GuluTabsHead') {
+                    vm.$children.forEach((childVm) => {
+                        if (childVm.$options.name === 'GuluTabsItem'
+                            && childVm.name === this.selected) {
+                            this.eventBus.$emit('update:selected', this.selected, childVm)
+                        }
+                    })
+                }
+            })
         }
     }
 </script>
