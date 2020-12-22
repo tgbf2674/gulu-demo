@@ -1,4 +1,5 @@
 module.exports = {
+    base: '/gulu-demo/',
     title: 'Gulu UI',
     description: '一个好用的UI框架',
     themeConfig: {
@@ -18,7 +19,14 @@ module.exports = {
 
             {
                 title: '组件',
-                children: ['/components/button']
+                children: [
+                    '/components/button',
+                    '/components/tabs',
+                    '/components/input',
+                    '/components/toast',
+                    '/components/grid',
+                    '/components/layout',
+                ]
             },
         ]
     }
