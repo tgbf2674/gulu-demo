@@ -1,0 +1,98 @@
+<template>
+    <div class="wrapper">
+        <g-layout class="layout-wrapper">
+            <g-header class="header-wrapper"> header </g-header>
+            <g-layout class="layout-wrapper">
+                <g-sider class="sider-wrapper"> sider </g-sider>
+                <g-content class="content-wrapper"> content </g-content>
+            </g-layout>
+            <g-footer class="footer-wrapper"> footer </g-footer>
+        </g-layout>
+        <br>
+        <g-layout class="layout-wrapper">
+            <g-header class="header-wrapper"> header </g-header>
+            <g-content class="content-wrapper"> content </g-content>
+            <g-footer class="footer-wrapper"> footer </g-footer>
+        </g-layout>
+        <br>
+        <g-layout class="layout-wrapper">
+            <g-header class="header-wrapper"> header </g-header>
+            <g-layout class="layout-wrapper">
+                <g-sider class="sider-wrapper"> sider </g-sider>
+                <g-layout class="layout-wrapper">
+                    <g-content class="content-wrapper"> content </g-content>
+                    <g-footer class="footer-wrapper"> footer </g-footer>
+                </g-layout>
+            </g-layout>
+        </g-layout>
+        <pre><code>{{content}}</code></pre>
+    </div>
+</template>
+
+<script>
+    import Layout from '../../../src/layout'
+    import Header from '../../../src/header'
+    import Sider from '../../../src/sider'
+    import Footer from '../../../src/footer'
+    import Content from '../../../src/content'
+    export default {
+        components:{
+            'g-layout': Layout,
+            'g-header': Header,
+            'g-sider': Sider,
+            'g-footer': Footer,
+            'g-content': Content,
+        },
+        data(){
+            return{
+                content: `
+  <div class="wrapper">
+    <i-layout>
+      <i-header> header </i-header>
+      <i-layout>
+        <i-sider> sider </i-sider>
+        <i-content> content </i-content>
+      </i-layout>
+      <i-footer> footer </i-footer>
+    </i-layout>
+    <br>
+    <i-layout>
+      <i-header> header </i-header>
+      <i-content> content </i-content>
+      <i-footer> footer </i-footer>
+    </i-layout>
+    <br>
+    <i-layout>
+      <i-header> header </i-header>
+      <i-layout>
+        <i-sider> sider </i-sider>
+        <i-layout>
+          <i-content> content </i-content>
+          <i-footer> footer </i-footer>
+        </i-layout>
+      </i-layout>
+    </i-layout>
+  </div>
+                `
+            }
+        }
+    }
+</script>
+<style lang="scss" scoped>
+    $background: #3eaf7c;
+    .wrapper {
+        > .layout-wrapper { height: 30vh;
+            > .header-wrapper { height: 3em; background: $background; }
+            > .content-wrapper { background: lighten($background, 40%); }
+            > .layout-wrapper { height: 6em;
+                > .sider-wrapper { width: 3em; background: lighten($background, 15%); }
+                > .content-wrapper { background: lighten($background, 40%); }
+                > .layout-wrapper{
+                    > .content-wrapper{ background: lighten($background, 40%); }
+                    > .footer-wrapper { background: $background; }
+                }
+            }
+            > .footer-wrapper { background: $background; }
+        }
+    }
+</style>

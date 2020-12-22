@@ -2,6 +2,8 @@
     <div>
         <g-button>默认按钮</g-button>
         <g-button icon="settings">默认按钮</g-button>
+        <g-button icon="settings" icon-position="right">默认按钮</g-button>
+        <g-button icon="settings" icon-position="left">默认按钮</g-button>
         <g-button :loading="true">默认按钮</g-button>
         <g-button disabled>默认按钮</g-button>
         <pre><code>{{content}}</code></pre>
@@ -19,6 +21,8 @@
                 content: `
         <g-button>默认按钮</g-button>
         <g-button icon="settings">默认按钮</g-button>
+        <g-button icon="settings" icon-position="right">默认按钮</g-button>
+        <g-button icon="settings" icon-position="left">默认按钮</g-button>
         <g-button :loading="true">默认按钮</g-button>
         <g-button disabled>默认按钮</g-button>
             `.replace(/\t+| +/g, '').trim()

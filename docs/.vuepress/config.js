@@ -10,14 +10,6 @@ module.exports = {
         ],
         sidebar: [
             {
-              title: '入门',
-              children: [
-                  '/install/',
-                  '/get-started/',
-              ]
-            },
-
-            {
                 title: '组件',
                 children: [
                     '/components/button',
@@ -26,6 +18,7 @@ module.exports = {
                     '/components/toast',
                     '/components/grid',
                     '/components/layout',
+                    '/components/collapse',
                 ]
             },
         ]

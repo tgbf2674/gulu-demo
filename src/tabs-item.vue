@@ -19,8 +19,15 @@
                 default: false
             },
             name:{
-                type: String|Number,
+                type: [String,Number],
                 required: true
+            },
+            position: {
+                type: String,
+                default: 'top',
+                validator (value) {
+                    return ['top', 'bottom', 'middle'].indexOf(value) >= 0
+                }
             }
         },
         computed:{

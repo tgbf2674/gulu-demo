@@ -29,11 +29,8 @@
     ```
     IE 11及以上浏览器支持以上样式
     
-2. 安装 gulu
-    ```
-   npm i -save gulu
-   ```
-3. 引入gulu
+
+2. 引入gulu
     ```
    import {Button,ButtonGroup,Icon} from 'gulu'
    import 'gulu/dist/index.css'
